@@ -34,7 +34,8 @@ func (o OpenGraph) HTML() template.HTML {
 		b.WriteString(template.HTMLEscaper(property))
 		b.WriteString(`" content="`)
 		b.WriteString(template.HTMLEscaper(content))
-		b.WriteString(`" />\n`)
+		b.WriteString(`" />`)
+		b.WriteByte('\n')
 	}
 
 	if o.Title != "" {
