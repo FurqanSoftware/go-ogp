@@ -23,7 +23,7 @@ type OpenGraph struct {
 	Locale          Locale
 	LocaleAlternate []Locale
 	SiteName        string
-	Video           Video
+	Video           URL
 }
 
 func (o OpenGraph) HTML() template.HTML {
@@ -70,6 +70,31 @@ func (o OpenGraph) HTML() template.HTML {
 		if g.Alt != "" {
 			meta("og:image:alt", g.Alt)
 		}
+	}
+	if o.URL.IsValid() {
+		meta("og:url", string(o.URL))
+	}
+
+	if o.Audio != "" {
+		meta("og:audio", string(o.Audio))
+	}
+	if o.Description != "" {
+		meta("og:description", o.Description)
+	}
+	if o.Determiner != "" {
+		meta("og:determiner", string(o.Determiner))
+	}
+	if o.Locale != "" {
+		meta("og:locale", string(o.Locale))
+	}
+	for _, loc := range o.LocaleAlternate {
+		meta("og:locale:alternate", string(loc))
+	}
+	if o.SiteName != "" {
+		meta("og:site_name", o.SiteName)
+	}
+	if o.Video.IsValid() {
+		meta("og:video", string(o.Video))
 	}
 
 	return template.HTML(b.String())
