@@ -1,3 +1,3 @@
-module git.furqansoftware.net/toph/ogp
+module github.com/FurqanSoftware/go-ogp
 
 go 1.18
