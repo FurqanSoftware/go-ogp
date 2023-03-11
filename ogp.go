@@ -1,5 +1,7 @@
 // Copyright 2023 Furqan Software Ltd. All rights reserved.
 
+// Package ogp provides types that represent Open Graph metadata.
+// https://ogp.me/
 package ogp
 
 import (
